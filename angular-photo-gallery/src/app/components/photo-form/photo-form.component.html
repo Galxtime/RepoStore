@@ -1,0 +1,25 @@
+<div class="col-lg-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Subir foto de un producto
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadPhoto(nombre, precio)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre del Articulo" #nombre required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="2" class="form-control" placeholder="Precio" required #precio></textarea>
+                </div>
+
+                <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/upload-picture.jpg'" class="img-fluid" alt="No image"
+                    (click)="photoInput.click()">
+
+                <button class="btn btn-primary btn-block">
+                    Cargar Imagen
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
